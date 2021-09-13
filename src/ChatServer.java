@@ -15,7 +15,7 @@ public class ChatServer {
 
     public void start() throws IOException {
         serverSocket = new ServerSocket(PORT);
-        System.out.println("servidor iniciado na porta: " + PORT);
+        System.out.println("Servidor iniciado na porta: " + PORT);
         clientConnectionLoop();
     }
 
@@ -34,20 +34,20 @@ public class ChatServer {
                 if ("sair".equalsIgnoreCase(msg)) {
                     return;
                 }
-                System.out.printf("mensagem recebida do cliente %s: %s\n", clientSocket.getRemoteSocketAddress(), msg);
-                sendMsgToAll(clientSocket, msg);
+                System.out.printf("Mensagem recebida do cliente %s: %s\n", clientSocket.getRemoteSocketAddress(), msg);
+                sendMessageToAll(clientSocket, msg);
             }
         } finally {
             clientSocket.close();
         }
     }
 
-    private void sendMsgToAll(ClientSocket sender, String msg) {
+    private void sendMessageToAll(ClientSocket sender, String msg) {
         Iterator<ClientSocket> iterator = clients.iterator();
         while (iterator.hasNext()) {
             ClientSocket clientSocket = iterator.next();
             if (!sender.equals(clientSocket)) {
-                if(!clientSocket.sendMsg(
+                if(!clientSocket.sendMessage(
                     "Cliente: " + sender.getRemoteSocketAddress() + ": " + msg)) {
                     iterator.remove();
                 };
@@ -60,8 +60,8 @@ public class ChatServer {
             ChatServer server = new ChatServer();
             server.start();
         } catch (IOException e) {
-            System.out.println("erro ao inicial o servidor: " + e.getMessage());
+            System.out.println("Erro ao inicial o servidor: " + e.getMessage());
         }
-        System.out.println("servidor finalizado");
+        System.out.println("Servidor finalizado");
     }
 }

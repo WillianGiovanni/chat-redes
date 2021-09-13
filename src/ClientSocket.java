@@ -12,7 +12,7 @@ public class ClientSocket {
 
     public ClientSocket(Socket socket) throws IOException {
         this.socket = socket;
-        System.out.println("cliente " + socket.getRemoteSocketAddress() + " conectou");
+        System.out.println("Cliente " + socket.getRemoteSocketAddress() + " conectou");
         this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         this.out = new PrintWriter(socket.getOutputStream(), true);
     }
@@ -29,7 +29,7 @@ public class ClientSocket {
         }
     }
 
-    public boolean sendMsg(String msg) {
+    public boolean sendMessage(String msg) {
         out.println(msg);
         return !out.checkError();
     }
@@ -40,7 +40,7 @@ public class ClientSocket {
             out.close();
             socket.close();
         } catch (IOException e) {
-            System.out.println("erro ao fechar socket: "+ e.getMessage());
+            System.out.println("Erro ao fechar socket: "+ e.getMessage());
         }
         
     }

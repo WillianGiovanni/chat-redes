@@ -16,7 +16,7 @@ public class ChatClient implements Runnable {
     public void start() throws UnknownHostException, IOException {
         try {
             clientSocket = new ClientSocket (new Socket(SERVER_ADDRESS, ChatServer.PORT));
-            System.out.println("cliente conectado no servidor: " + SERVER_ADDRESS + ":" + ChatServer.PORT);
+            System.out.println("Cliente conectado no servidor: " + SERVER_ADDRESS + ":" + ChatServer.PORT);
             new Thread(this).start();
             messageLoop();
             
@@ -28,9 +28,9 @@ public class ChatClient implements Runnable {
     private void messageLoop() throws IOException {
         String msg;
         do {
-            System.out.print("digite uma mensagem (ou SAIR para encerrar o programa): ");
+            System.out.print("Digite uma mensagem (ou SAIR para encerrar o programa): ");
             msg = scanner.nextLine();
-            clientSocket.sendMsg(msg);            
+            clientSocket.sendMessage(msg);            
         } while(!msg.equalsIgnoreCase("sair"));
     }
     
@@ -38,7 +38,7 @@ public class ChatClient implements Runnable {
     public void run() {
         String msg;
         while ((msg = clientSocket.getMessage()) != null) {
-            System.out.printf("mensagem recebida do servidor: %s \n",
+            System.out.printf("Mensagem recebida do servidor: %s \n",
             msg);
         }
     } 
@@ -48,8 +48,8 @@ public class ChatClient implements Runnable {
             ChatClient client = new ChatClient();
             client.start();
         } catch (IOException e) {
-            System.out.println("erro ao iniciar cliente: "+ e.getMessage());
+            System.out.println("Erro ao iniciar cliente: "+ e.getMessage());
         }
-        System.out.println("cliente finalizado");
+        System.out.println("Cliente finalizado");
     }
 }
