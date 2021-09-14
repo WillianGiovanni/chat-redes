@@ -21,11 +21,11 @@ $ javac *.java
 
 # Uma vez compilado abra 3 terminais no mesmo diretório e em um deles execute: 
 
-$ java ChatServer.java
+$ java ChatServer
 
 # Para iniciar o servidor, e nos outro dois execute:
 
-$ java ChatClient.java
+$ java ChatClient
 
 # Para começar a conversar
 ```
