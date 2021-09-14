@@ -12,8 +12,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 # Clone este repositório
 $ git clone https://github.com/WillianGiovanni/chat-redes
 
-# Acesse a pasta do projeto no terminal/cmd
-$ cd /chat-redes/src/
+# Acesse a pasta do projeto pelo terminal
+$ cd seuDiretório/chat-redes/src/
 
 # Uma vez dentro da pasta src, basta compilar:
 
