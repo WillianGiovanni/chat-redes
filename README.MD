@@ -10,7 +10,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/WillianGiovanni/chat-redes>
+$ git clone https://github.com/WillianGiovanni/chat-redes
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd /chat-redes/src/
